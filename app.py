@@ -250,7 +250,7 @@ def show_auth():
                 if user and verify_password(password, user[1]):
                     st.session_state['logged_in'] = True
                     st.session_state['username'] = username
-                    st.experimental_rerun()
+                    st.rerun()
                 else:
                     st.error("Invalid credentials")
 
