@@ -9,3 +9,4 @@ numpy>=1.25.0
 pillow
 openpyxl
 reportlab
+bcrypt
