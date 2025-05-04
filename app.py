@@ -35,6 +35,18 @@ def init_database():
                 password_hash TEXT
             )
         ''')
+        # ✅ Create predictions table
+        c.execute('''
+            CREATE TABLE IF NOT EXISTS predictions (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                username TEXT,
+                patient_name TEXT,
+                doctor_name TEXT,
+                risk_score REAL,
+                prediction_result TEXT,
+                timestamp TEXT
+            )
+        ''')
        
         conn.commit()
         
