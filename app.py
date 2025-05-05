@@ -50,7 +50,7 @@ def init_database():
        
         conn.commit()
         
-
+  init_database()
 # ========== Helper Functions ==========
 def hash_password(password):
     return bcrypt.hashpw(password.encode(), bcrypt.gensalt())
@@ -508,7 +508,6 @@ def low_risk_recommendations():
 # ========== Main Execution ==========
 if __name__ == "__main__":
     # Initial Setup
-    init_database()
 
 # Page Configuration
 st.set_page_config(
