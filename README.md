@@ -44,14 +44,18 @@ To set up and run the app locally, follow these steps:
    git clone https://github.com/star975/fresh_hearts.git
    
 2. Navigate to the project directory:
-   cd fresh_hearts
+
    
-3. Install the required dependencies:
-   pip install -r requirements.txt
+   **cd fresh_hearts**
    
-4. Run the Streamlit app:
+4. Install the required dependencies:
+
    
-   streamlit run app.py
+   **pip install -r requirements.txt**
+   
+6. Run the Streamlit app:
+   
+   **streamlit run app.py**
    
 
 ## Usage
