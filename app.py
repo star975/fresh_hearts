@@ -50,7 +50,7 @@ def init_database():
        
         conn.commit()
         
-  init_database()
+init_database()
 # ========== Helper Functions ==========
 def hash_password(password):
     return bcrypt.hashpw(password.encode(), bcrypt.gensalt())
@@ -504,7 +504,7 @@ if __name__ == "__main__":
     # Initial Setup
 
 # Page Configuration
-st.set_page_config(
+ st.set_page_config(
     page_title="Fresh Hearts",
     page_icon="❤️",
     layout="centered",
@@ -586,7 +586,7 @@ else:
     # 🎯 Logout Button
     if st.sidebar.button("🚪 Logout"):
         st.session_state.logged_in = False
-        st.experimental_rerun()
+        st.rerun()
 
     # 🎉 Welcome Only on Main Page
     st.markdown('<div class="custom-header">Welcome to ❤️ Fresh Hearts AI System</div>', unsafe_allow_html=True)
