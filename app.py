@@ -314,31 +314,22 @@ def show_main_app():
         show_live_dashboard()
 
 # ========== Input Components ==========
+
 def get_user_inputs(prefix="input"):
     return {
         'age': st.sidebar.number_input('Age', 1, 120, 50, key=f"{prefix}_age"),
-        'sex': st.sidebar.selectbox('Sex', options=[0, 1], format_func=lambda x: 'Female' if x == 0 else 'Male', key=f"{prefix}_sex"),
-        'cp': st.sidebar.selectbox('Chest Pain Type', options=[0, 1, 2, 3],
-                                   format_func=lambda x: ['Typical Angina', 'Atypical Angina', 'Non-anginal Pain', 'Asymptomatic'][x],
-                                   key=f"{prefix}_cp"),
+        'sex': st.sidebar.selectbox('Sex', options=[0, 1], key=f"{prefix}_sex"),
+        'cp': st.sidebar.selectbox('Chest Pain Type', options=[0, 1, 2, 3], key=f"{prefix}_cp"),
         'trestbps': st.sidebar.number_input('Resting BP (mm Hg)', 80, 200, 120, key=f"{prefix}_trestbps"),
         'chol': st.sidebar.number_input('Cholesterol (mg/dl)', 100, 600, 200, key=f"{prefix}_chol"),
-        'fbs': st.sidebar.selectbox('Fasting Blood Sugar >120', options=[0, 1],
-                                    format_func=lambda x: 'No' if x == 0 else 'Yes', key=f"{prefix}_fbs"),
-        'restecg': st.sidebar.selectbox('ECG Results', options=[0, 1, 2],
-                                        format_func=lambda x: ['Normal', 'ST-T wave abnormality', 'Left ventricular hypertrophy'][x],
-                                        key=f"{prefix}_restecg"),
+        'fbs': st.sidebar.selectbox('Fasting Blood Sugar >120', options=[0, 1], key=f"{prefix}_fbs"),
+        'restecg': st.sidebar.selectbox('ECG Results', options=[0, 1, 2], key=f"{prefix}_restecg"),
         'thalach': st.sidebar.number_input('Max Heart Rate', 60, 220, 150, key=f"{prefix}_thalach"),
-        'exang': st.sidebar.selectbox('Exercise Angina', options=[0, 1],
-                                      format_func=lambda x: 'No' if x == 0 else 'Yes', key=f"{prefix}_exang"),
+        'exang': st.sidebar.selectbox('Exercise Angina', options=[0, 1], key=f"{prefix}_exang"),
         'oldpeak': st.sidebar.number_input('ST Depression', 0.0, 10.0, 1.0, 0.1, key=f"{prefix}_oldpeak"),
-        'slope': st.sidebar.selectbox('ST Slope', options=[0, 1, 2],
-                                      format_func=lambda x: ['Upsloping', 'Flat', 'Downsloping'][x],
-                                      key=f"{prefix}_slope"),
+        'slope': st.sidebar.selectbox('ST Slope', options=[0, 1, 2], key=f"{prefix}_slope"),
         'ca': st.sidebar.selectbox('Major Vessels', [0, 1, 2, 3], key=f"{prefix}_ca"),
-        'thal': st.sidebar.selectbox('Thalassemia', options=[1, 2, 3],
-                                     format_func=lambda x: ['Normal', 'Fixed Defect', 'Reversible Defect'][x - 1],
-                                     key=f"{prefix}_thal")
+        'thal': st.sidebar.selectbox('Thalassemia', options=[1, 2, 3], key=f"{prefix}_thal")
     }
 
 def add_footer(c, width):
@@ -571,8 +562,6 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
-
-
 # === Session State ===
 if 'logged_in' not in st.session_state:
     st.session_state.logged_in = False
@@ -586,7 +575,7 @@ else:
     # 🎯 Logout Button
     if st.sidebar.button("🚪 Logout"):
         st.session_state.logged_in = False
-        st.rerun()
+        st.experimental_rerun()
 
     # 🎉 Welcome Only on Main Page
     st.markdown('<div class="custom-header">Welcome to ❤️ Fresh Hearts AI System</div>', unsafe_allow_html=True)
